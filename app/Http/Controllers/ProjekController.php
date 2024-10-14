@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Skill;
+use App\Models\Projek;
 use Illuminate\Http\Request;
 
-class SkillController extends Controller
+class ProjekController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $skill = Skill::all();
-
-        return Inertia::render('Skill/Index', [
-            'skill' => $skill
-        ]);
+        //
     }
 
     /**
@@ -24,7 +20,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -32,25 +28,13 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'foto' => 'required', 
-            'judul' => 'required'
-        ]);
-    
-        $create = Skill::create([
-            'foto' => $request->foto,
-            'judul' => $request->judul
-        ]);
-    
-        if($create) {
-            return Redirect::route('skill.index')->with('message', 'Data Skill berhasil disimpan');
-        }   
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Skill $skill)
+    public function show(Projek $projek)
     {
         //
     }
@@ -58,7 +42,7 @@ class SkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Skill $skill)
+    public function edit(Projek $projek)
     {
         //
     }
@@ -66,7 +50,7 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request, Projek $projek)
     {
         //
     }
@@ -74,7 +58,7 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Skill $skill)
+    public function destroy(Projek $projek)
     {
         //
     }
