@@ -12,7 +12,10 @@ class ProjekController extends Controller
      */
     public function index()
     {
-        //
+        $projeks = Projek::latest()->get();
+        return inertia('Projek/Index', [
+            'projeks' => $projeks,
+        ]); 
     }
 
     /**
