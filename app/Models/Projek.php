@@ -12,6 +12,8 @@ class Projek extends Model
         'gambar',
         'judul',
         'keterangan',
+        'tech',
+        'link',
         'user_id',
     ];
 
