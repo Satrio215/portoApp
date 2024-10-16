@@ -45,10 +45,8 @@ class ProjekController extends Controller
         'user_id' => 'required|exists:users,id',
     ]);
 
-    // Simpan gambar
     $path = $request->file('gambar')->store('images', 'public');
 
-    // Buat entri baru di tabel projek
     Projek::create([
         'gambar' => $path,
         'judul' => $request->judul,
@@ -73,24 +71,63 @@ class ProjekController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Projek $projek)
+    public function edit($id)
     {
-        //
+        $projek = Projek::findOrFail($id);
+        return inertia('Projek/Update', [
+        'projek' => $projek,
+    ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Projek $projek)
-    {
-        //
+    public function update(Request $request, $id)
+{
+    $projek = Projek::findOrFail($id);
+
+    $request->validate([
+        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'judul' => 'required|string|max:255',
+        'keterangan' => 'required|string',
+        'tech' => 'required|string|max:255',
+        'link' => 'required|url|max:255',
+        'user_id' => 'required|exists:users,id',
+    ]);
+
+    if ($request->hasFile('gambar')) {
+        if ($projek->gambar && Storage::exists('public/' . $projek->gambar)) {
+            Storage::delete('public/' . $projek->gambar);
+        }
+        $path = $request->file('gambar')->store('images', 'public');
+        $projek->gambar = $path;
     }
+
+    $projek->judul = $request->judul;
+    $projek->keterangan = $request->keterangan;
+    $projek->tech = $request->tech;
+    $projek->link = $request->link;
+    $projek->user_id = $request->user_id;
+
+    $projek->save();
+
+    return redirect()->route('projeks.index')->with('success', 'Projek berhasil diperbarui.');
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Projek $projek)
+    public function destroy($id)
     {
-        //
+        $projek = Projek::findOrFail($id);
+
+        if ($projek->gambar && Storage::exists('public/' . $projek->gambar)) {
+            Storage::delete('public/' . $projek->gambar);
+        }
+
+        $projek->delete();
+
+        return response()->json(['message' => 'Projek berhasil dihapus.']);
     }
 }

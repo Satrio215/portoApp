@@ -2,6 +2,18 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
 
 export default function Index({ auth, projeks }) {
+    const handleDelete = (id) => {
+        if (confirm('Apakah Anda yakin ingin menghapus projek ini?')) {
+            axios.delete(route('projeks.destroy', id))
+                .then(() => {
+                    alert('Projek berhasil dihapus');
+                    window.location.reload(); // Refresh the page to see the changes
+                })
+                .catch((error) => {
+                    console.error('Error deleting experience:', error);
+                });
+        }
+    };
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -46,9 +58,18 @@ export default function Index({ auth, projeks }) {
                                                     </a>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    {/* <Link href={route('projeks.edit', projek.id)} className="text-indigo-600 hover:text-indigo-900">
+                                                <Link
+                                                        href={route('projeks.edit', projek.id)}
+                                                        className="border border-green-600 text-green-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-green-600 hover:text-white text-sm"
+                                                    >
                                                         Edit
-                                                    </Link> */}
+                                                    </Link>
+                                                    <button
+                                                        onClick={() => handleDelete(projek.id)}
+                                                            className="border border-red-600 text-red-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-red-600 hover:text-white text-sm"
+                                                        >
+                                                        Delete
+                                                     </button>
                                                 </td>
                                             </tr>
                                         ))}
