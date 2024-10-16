@@ -57,7 +57,7 @@ export default function Index({ auth, projeks }) {
                                                         {projek.link}
                                                     </a>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                                                 <Link
                                                         href={route('projeks.edit', projek.id)}
                                                         className="border border-green-600 text-green-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-green-600 hover:text-white text-sm"
@@ -69,7 +69,7 @@ export default function Index({ auth, projeks }) {
                                                             className="border border-red-600 text-red-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-red-600 hover:text-white text-sm"
                                                         >
                                                         Delete
-                                                     </button>
+                                                 </button>
                                                 </td>
                                             </tr>
                                         ))}
