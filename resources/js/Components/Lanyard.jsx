@@ -8,7 +8,7 @@ import { useControls } from 'leva';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 useGLTF.preload('/asset/idCard.glb');  // Preload the updated local GLB file
-useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg');
+useTexture.preload('/asset/kalung.png');
 
 export default function Lanyard() {
   const { debug } = useControls({ debug: false });
@@ -46,7 +46,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 };
   
   const { nodes, materials } = useGLTF('/asset/idCard.glb');  // Updated to use the local GLB file
-  const texture = useTexture('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg');
+  const texture = useTexture('/asset/kalung.png');
   
   const { width, height } = useThree((state) => state.size);
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
