@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
 import '../../css/styles.css'
-import App from '@/Components/Lanyard'
+import Lanyard from '@/Components/Lanyard'
 
-createRoot(document.getElementById('root')).render(<App />)
+createRoot(document.getElementById('root')).render(<Lanyard />)
