@@ -4,19 +4,19 @@ import { Canvas, extend, useThree, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
-import { useControls } from 'leva';
+// import { useControls } from 'leva';  // Comment out or remove this line
 
 extend({ MeshLineGeometry, MeshLineMaterial });
-useGLTF.preload('/asset/idCard.glb');  // Preload the updated local GLB file
+useGLTF.preload('/asset/idCard.glb');
 useTexture.preload('/asset/kalung.png');
 
 export default function Lanyard() {
-  const { debug } = useControls({ debug: false });
+  // const { debug } = useControls({ debug: false });  // Comment out or remove this line
 
   return (
     <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
       <ambientLight intensity={Math.PI} />
-      <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
+      <Physics debug={false} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}> {/* Set debug to false directly */}
         <Band />
       </Physics>
       <Environment background blur={0.75}>
@@ -45,7 +45,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 };
   
-  const { nodes, materials } = useGLTF('/asset/idCard.glb');  // Updated to use the local GLB file
+  const { nodes, materials } = useGLTF('/asset/idCard.glb');
   const texture = useTexture('/asset/kalung.png');
   
   const { width, height } = useThree((state) => state.size);

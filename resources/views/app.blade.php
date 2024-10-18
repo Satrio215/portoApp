@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     @viteReactRefresh
     @vite(['resources/js/app.jsx'])
+    @routes <!-- Pastikan Ziggy routes ditambahkan di sini -->
     @inertiaHead
 </head>
 <body class="font-sans antialiased">
