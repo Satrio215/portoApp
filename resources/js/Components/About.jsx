@@ -22,9 +22,9 @@ const About = () => {
         <>
         <section
             ref={target}
-            className="w-full relative rounded-t-3xl  h-[300vh] bg-black"
+            className="w-full relative rounded-t-3xl  h-[300vh] bg-black justify-center"
             >
-            <div className="h-screen sticky top-0 flex items-center justify-center">
+            <div className="h-screen sticky top-0 flex-col items-center justify-center pt-40">
                 <div className="max-w-7xl mx-auto lg:px-0 px-2">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
@@ -47,10 +47,10 @@ const About = () => {
                             </p>
                         );
                     })}
-                    <div class="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900">
-                    <GitHubCalendar style={{color:'white'}}username="Satrio215" />
-                    </div>
                 </div>
+                    <div class="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900 mx-auto max-w-7xl mt-14">
+                        <GitHubCalendar style={{color:'white'}}username="Satrio215" />
+                    </div>
             </div>
         </section>
         
