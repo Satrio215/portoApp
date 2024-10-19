@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import GitHubCalendar from 'react-github-calendar';
+
 const content = [
     "About Me",
     "Welcome to my portfolio! I'm a dedicated backend developer with a strong passion for coding and solving complex problems through efficient and scalable solutions. With a solid background in languages like PHP, Java, and JavaScript, I enjoy working on innovative projects that push the boundaries of technology. I'm always eager to learn new tools, frameworks, and methodologies to stay updated with the latest industry trends. Whether it’s improving performance, optimizing databases, or integrating APIs, I thrive on crafting clean, maintainable code. Feel free to explore my projects, and don't hesitate to connect with me for collaborations or discussions!",
@@ -45,6 +47,9 @@ const About = () => {
                             </p>
                         );
                     })}
+                    <div class="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900">
+                    <GitHubCalendar style={{color:'white'}}username="Satrio215" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -68,3 +73,4 @@ const Word = ({ children, range, progress }) => {
 };
 
 export default About;
+
