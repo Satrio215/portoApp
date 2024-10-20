@@ -48,9 +48,18 @@ const About = () => {
                         );
                     })}
                 </div>
-                    <div class="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900 mx-auto max-w-7xl mt-14">
-                        <GitHubCalendar style={{color:'white'}}username="Satrio215" />
+                
+                <div className="flex flex-wrap items-center justify-center mx-auto max-w-7xl mt-14 space-y-4 md:space-y-0 md:space-x-4 px-2 sm:px-4 lg:px-8">
+                    <div className="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900 w-full sm:w-1/2 lg:w-1/4 py-2 sm:pb-8">
+                        <p className="text-center text-black dark:text-white">
+                            This is a new div next to GitHub Calendar. You can add more content here.
+                        </p>
                     </div>
+                    <div className="flex items-center justify-center rounded-xl border border-b-0 border-slate-700 bg-zinc-200 p-4 dark:bg-zinc-900 w-full sm:w-1/2 lg:w-auto pt-0 py-2 sm:py-4 lg:py-8">
+                        <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
+                    </div>
+                </div>
+
             </div>
         </section>
         
