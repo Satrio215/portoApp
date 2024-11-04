@@ -3,15 +3,20 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ProjekController;
+use App\Models\Pengalaman;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+
+    $pengalamans = Pengalaman::latest()->get();
+
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
+        'pengalamans' => $pengalamans,
         'phpVersion' => PHP_VERSION,
     ]);
 });
@@ -41,6 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/projeks/{id}', [ProjekController::class, 'update'])->name('projeks.update');
     Route::delete('/projeks/{id}', [ProjekController::class, 'destroy'])->name('projeks.destroy');
 });
+
+
 
 
 

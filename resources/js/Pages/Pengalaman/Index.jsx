@@ -1,6 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
-import axios from 'axios';
 
 export default function PengalamanIndex({ pengalamans, auth }) {
     const handleDelete = (id) => {
