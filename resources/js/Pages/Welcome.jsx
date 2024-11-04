@@ -5,10 +5,10 @@ import Lanyard from '@/Components/Lanyard';
 import About from '@/Components/About'; 
 
 
-const Welcome = () => {
+const Welcome = ({ pengalamans }) => {
   return (
     <div>
-         <About />
+         <About pengalamans={pengalamans}/>
     </div>
    
   );
