@@ -24,7 +24,7 @@ const About = ({ pengalamans }) => {
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
                         return (
-                            <p key={lineIndex} className={` ${lineIndex === 2 ? 'text-end  w-fit ms-auto' : ''} flex flex-wrap font-bold lg:mb-4 ${lineIndex === 0 || lineIndex === 2 ? 'text-4xl lg:text-5xl font-bold' : "text-base lg:text-lg"}`}>
+                            <p key={lineIndex} className={` ${lineIndex === 2 ? 'text-end w-fit ms-auto' : ''} flex flex-wrap font-bold lg:mb-4 ${lineIndex === 0 || lineIndex === 2 ? 'text-4xl lg:text-5xl font-bold' : "text-base lg:text-lg"}`}>
                                 {words.map((word, wordIndex) => {
                                     const start = wordCounter / totalWords;
                                     const end = (wordCounter + 1) / totalWords;
@@ -45,21 +45,36 @@ const About = ({ pengalamans }) => {
                 </div>
 
                 <div className="md:px-32 sm:px-8 py-8">
-                    <h3 className="text-white font-bold text-4xl mb-4">Experience</h3>
-                    <ul className="text-white flex flex-wrap gap-4">
-                        {pengalamans.map((pengalaman) => (
-                            <li 
-                                key={pengalaman.id} 
-                                className="mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12"
-                            >
-                                <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
-                                <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
-                                <p>{pengalaman.keterangan}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <h3 className="text-white font-bold text-4xl mb-4 pb-4">Experience</h3>
+                    <div className="marqueeWrapper overflow-hidden">
+                        <div className="marquee">
+                            <div className="marquee__content" style={{ '--duration': '30s' }}>
+                                {pengalamans.map((pengalaman) => (
+                                    <li
+                                        key={pengalaman.id}
+                                        className="mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12"
+                                    >
+                                        <h4 className="font-semibold">{pengalaman.judul}</h4>
+                                        <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
+                                        <p>{pengalaman.keterangan}</p>
+                                    </li>
+                                ))}
+                            </div>
+                            <div className="marquee__content" style={{ '--duration': '30s' }} aria-hidden="true">
+                                {pengalamans.map((pengalaman) => (
+                                    <li
+                                        key={pengalaman.id}
+                                        className="mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12"
+                                    >
+                                        <h4 className="font-semibold">{pengalaman.judul}</h4>
+                                        <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
+                                        <p>{pengalaman.keterangan}</p>
+                                    </li>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
 
                 <div className="py-8 px-8">
                     <div className="flex justify-center w-full md:w-auto rounded-xl px-6 py-8 border border-gray-400 md:max-w-4xl mx-auto">

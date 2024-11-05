@@ -14,4 +14,36 @@
   body {
     background-color: #111;
   }
-  
+
+  .marqueeWrapper {
+    overflow: hidden;
+    background: black;
+    color: white;
+    position: relative; /* Ensure proper positioning */
+}
+
+.marquee {
+    display: flex;
+    user-select: none;
+    gap: var(--gap);
+}
+
+.marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    will-change: transform;
+    animation: scroll var(--duration) linear infinite;
+}
+
+/* Adjust the keyframes according to the duration */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
