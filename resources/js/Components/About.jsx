@@ -44,16 +44,16 @@ const About = ({ pengalamans }) => {
                     })}
                 </div>
 
-                <div className="py-8 px-8">
-                    <h3 className="text-white font-bold text-2xl mb-4 justify-center">Experience</h3>
+                <div className="py-8 px-8 ">
+                    <h3 className="text-white font-bold text-2xl mb-4">Experience</h3>
                     <ul className="text-white flex flex-wrap gap-4">
                         {pengalamans.map((pengalaman) => (
                             <li 
                                 key={pengalaman.id} 
                                 className="mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12"
                             >
-                                <h4 className="font-semibold">{pengalaman.judul}</h4>
-                                <p>{pengalaman.mulai} - {pengalaman.selesai}</p>
+                                <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
+                                <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
                                 <p>{pengalaman.keterangan}</p>
                             </li>
                         ))}
