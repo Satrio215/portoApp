@@ -22,6 +22,28 @@
     position: relative; /* Ensure proper positioning */
 }
 
+/* Add shadow effect to the left and right sides */
+.marqueeWrapper::before,
+.marqueeWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px; /* Adjust width to control shadow spread */
+    pointer-events: none;
+    z-index: 1; /* Ensure it overlays the content */
+}
+
+.marqueeWrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.marqueeWrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+}
+
 .marquee {
     display: flex;
     user-select: none;

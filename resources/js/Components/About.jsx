@@ -52,7 +52,7 @@ const About = ({ pengalamans }) => {
                                 {pengalamans.map((pengalaman, index) => (
                                     <li
                                         key={pengalaman.id}
-                                        className={`mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                        className={`mb-4 p-4 border border-gray-500 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
@@ -64,7 +64,7 @@ const About = ({ pengalamans }) => {
                                 {pengalamans.map((pengalaman, index) => (
                                     <li
                                         key={pengalaman.id}
-                                        className={`mb-4 p-4 border border-gray-500 rounded-lg flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                        className={`mb-4 p-4 border border-gray-500 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
@@ -76,11 +76,12 @@ const About = ({ pengalamans }) => {
                     </div>
                 </div>
 
-                <div className="py-8 px-8">
-                    <div className="flex justify-center w-full md:w-auto rounded-xl px-6 py-8 border border-gray-500 md:max-w-4xl mx-auto">
+                <div className="flex flex-wrap justify-center py-8 px-8">
+                    <div className="w-full md:w-auto px-6 py-8 border border-gray-500 rounded-xl md:max-w-4xl mx-auto">
                         <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
                     </div>
                 </div>
+
             </div>
         </section>
     );
