@@ -19,7 +19,7 @@ const About = ({ pengalamans }) => {
 
     return (
         <section ref={target} className="w-full relative rounded-t-3xl h-[300vh] bg-black justify-center">
-            <div className="h-screen sticky top-0 flex-col items-center justify-center py-8 px-8">
+            <div className="h-screen sticky top-0 flex-col items-center justify-center py-12 px-8">
                 <div className="mx-auto lg:px-32">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
@@ -52,7 +52,7 @@ const About = ({ pengalamans }) => {
                                 {pengalamans.map((pengalaman, index) => (
                                     <li
                                         key={pengalaman.id}
-                                        className={`mb-4 p-4 border border-gray-500 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                        className={`mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
@@ -64,7 +64,7 @@ const About = ({ pengalamans }) => {
                                 {pengalamans.map((pengalaman, index) => (
                                     <li
                                         key={pengalaman.id}
-                                        className={`mb-4 p-4 border border-gray-500 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                        className={`mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
@@ -76,12 +76,22 @@ const About = ({ pengalamans }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center py-8 px-8">
-                    <div className="w-full md:w-auto px-6 py-8 border border-gray-500 rounded-xl md:max-w-4xl mx-auto">
+                <div className="flex flex-wrap justify-center py-4 px-8">
+                    <div className="w-full md:w-auto px-6 py-6 bg-zinc-900 rounded-xl text-center md:mr-4 mb-4 md:mb-0">
+                        <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="/asset/profile.png"
+                                alt="Profile"
+                                className="rounded-full w-24 h-24 mx-auto mb-4 border-2 border-gray-500 grayscale hover:grayscale-0 transition duration-300"/>
+                        </a>
+                        <p className="text-neutral-50">
+                            GitHub Profile
+                        </p>
+                    </div>
+                    <div className="w-full md:w-auto px-8 py-4 bg-zinc-900 rounded-xl">
                         <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
                     </div>
                 </div>
-
             </div>
         </section>
     );
