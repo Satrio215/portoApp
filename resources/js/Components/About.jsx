@@ -113,15 +113,15 @@ const About = ({ pengalamans }) => {
                             />
                         </a>
                         <p className="text-neutral-50">
-                            <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer" className="hover:underline font-bold">
                                 Check out my GitHub Profile
                             </a>
                         </p>
                         <p className="text-neutral-50">
-                            Dont Forget to Follow
+                            Don't Forget to Follow
                         </p>
                     </div>
-                    <div className="w-full md:w-auto px-8 py-4 bg-zinc-900 rounded-xl">
+                    <div className="w-full md:w-auto px-8 py-6 bg-zinc-900 rounded-xl">
                         <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
                     </div>
                 </motion.div>
