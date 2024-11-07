@@ -4,7 +4,7 @@ import GitHubCalendar from 'react-github-calendar';
 
 const content = [
     "About Me",
-    "Welcome to my portfolio! I’m a Computer Science student at Brawijaya University, focused on backend development and passionate about creating efficient, scalable solutions. With expertise in PHP, Java, and JavaScript, I’m expanding my skills toward full-stack development, exploring both frontend and backend technologies. I enjoy tackling challenging projects, improving performance, optimizing databases, and building clean, maintainable code. Feel free to check out my work or connect for collaborations and discussions!",
+    "Welcome to my portfolio! I’m a Computer Science student at Brawijaya University with a strong focus on backend development and a passion for creating efficient, scalable solutions. Specializing in PHP, Java, and JavaScript, I’m expanding my expertise toward full-stack development by exploring both frontend and backend technologies. I aim to build clean, optimized, and maintainable code while tackling complex challenges such as database optimization and performance improvements. My goal is to contribute to impactful projects that blend both functionality and design, ensuring seamless integration between the front and back ends. I’m always excited to collaborate, share knowledge, and connect with others to push the boundaries of innovation in the tech world. Feel free to explore my work, and let’s connect if you’re interested in collaborating or discussing potential projects!",
 ];
 
 const About = ({ pengalamans }) => {
@@ -19,12 +19,19 @@ const About = ({ pengalamans }) => {
 
     return (
         <section ref={target} className="w-full relative rounded-t-3xl h-[300vh] bg-black justify-center">
-            <div className="h-screen sticky top-0 flex-col items-center justify-center py-12 px-8">
-                <div className="mx-auto lg:px-32">
+            <div className="h-screen sticky top-0 flex-col items-center justify-center py-12 md:px-36 px-4">
+                <div className="mx-auto md:px-32">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
                         return (
-                            <p key={lineIndex} className={` ${lineIndex === 2 ? 'text-end w-fit ms-auto' : ''} flex flex-wrap font-bold lg:mb-4 ${lineIndex === 0 || lineIndex === 2 ? 'text-4xl lg:text-6xl font-bold' : "text-base lg:text-lg"}`}>
+                            <motion.p
+                                key={lineIndex}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: lineIndex * 0.2 }}
+                                viewport={{ once: true }}
+                                className={`flex flex-wrap font-bold lg:mb-4 ${lineIndex === 0 ? 'text-4xl lg:text-6xl' : 'text-base lg:text-lg'}`}
+                            >
                                 {words.map((word, wordIndex) => {
                                     const start = wordCounter / totalWords;
                                     const end = (wordCounter + 1) / totalWords;
@@ -39,59 +46,82 @@ const About = ({ pengalamans }) => {
                                         </Word>
                                     );
                                 })}
-                            </p>
+                            </motion.p>
                         );
                     })}
                 </div>
 
-                <div className="md:px-32 sm:px-8 py-2">
-                    <h3 className="text-white font-bold text-4xl mb-4 pb-4">Experience</h3>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    className="md:px-32 sm:px-8 py-2"
+                >
+                    <h3 className="text-white font-bold text-3xl mb-4 pb-4 pt-4">Experience</h3>
                     <div className="marqueeWrapper overflow-hidden">
                         <div className="marquee">
-                            <div className="marquee__content pr-4" style={{ '--duration': '80s' }}>
+                            <div className="marquee__content " style={{ '--duration': '80s' }}>
                                 {pengalamans.map((pengalaman, index) => (
-                                    <li
+                                    <motion.li
                                         key={pengalaman.id}
-                                        className={`mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.2 }}
+                                        viewport={{ once: true }}
+                                        className="mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:w-5/12 lg:w-3/12 mr-4"
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
                                         <p>{pengalaman.keterangan}</p>
-                                    </li>
+                                    </motion.li>
                                 ))}
                             </div>
-                            <div className="marquee__content pr-4 " style={{ '--duration': '80s' }} aria-hidden="true">
+                            <div className="marquee__content" style={{ '--duration': '80s' }} aria-hidden="true">
                                 {pengalamans.map((pengalaman, index) => (
-                                    <li
-                                        key={pengalaman.id}
-                                        className={`mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:flex-grow-0 md:w-5/12 lg:w-3/12 ${index < pengalamans.length - 1 ? 'mr-4' : ''}`}
+                                    <motion.li
+                                        key={`${pengalaman.id}-duplicate`}
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.2 }}
+                                        viewport={{ once: true }}
+                                        className="mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:w-5/12 lg:w-3/12 mr-4"
                                     >
                                         <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
                                         <p>{pengalaman.keterangan}</p>
-                                    </li>
+                                    </motion.li>
                                 ))}
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-wrap justify-center py-4 px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                    viewport={{ once: true }}
+                    className="flex flex-wrap justify-center py-2 px-8"
+                >
                     <div className="w-full md:w-auto px-6 py-6 bg-zinc-900 rounded-xl text-center md:mr-4 mb-4 md:mb-0">
                         <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/asset/profile.png"
                                 alt="Profile"
-                                className="rounded-full w-24 h-24 mx-auto mb-4 border-2 border-gray-500 grayscale hover:grayscale-0 transition duration-300"/>
+                                className="rounded-full w-24 h-24 mx-auto mb-4 border-2 border-gray-500 grayscale hover:grayscale-0 transition duration-300"
+                            />
                         </a>
                         <p className="text-neutral-50">
-                            GitHub Profile
+                            <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                Check out my GitHub Profile
+                            </a>
                         </p>
                     </div>
                     <div className="w-full md:w-auto px-8 py-4 bg-zinc-900 rounded-xl">
                         <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
