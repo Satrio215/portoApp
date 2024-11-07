@@ -117,6 +117,9 @@ const About = ({ pengalamans }) => {
                                 Check out my GitHub Profile
                             </a>
                         </p>
+                        <p className="text-neutral-50">
+                            Dont Forget to Follow
+                        </p>
                     </div>
                     <div className="w-full md:w-auto px-8 py-4 bg-zinc-900 rounded-xl">
                         <GitHubCalendar style={{ color: 'white' }} username="Satrio215" />
