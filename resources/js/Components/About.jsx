@@ -19,7 +19,7 @@ const About = ({ pengalamans }) => {
 
     return (
         <section ref={target} className="w-full relative rounded-t-3xl h-[300vh] bg-black justify-center">
-            <div className="h-screen sticky top-0 flex-col items-center justify-center py-12 md:px-36 px-4">
+            <div className="h-screen sticky top-0 flex-col items-center justify-center py-8 md:px-36 px-4">
                 <div className="mx-auto md:px-32">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
@@ -30,7 +30,7 @@ const About = ({ pengalamans }) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: lineIndex * 0.2 }}
                                 viewport={{ once: true }}
-                                className={`flex flex-wrap font-bold lg:mb-4 ${lineIndex === 0 ? 'text-4xl lg:text-6xl' : 'text-base lg:text-lg'}`}
+                                className={`flex flex-wrap font-bold lg:mb-4 pb-4 ${lineIndex === 0 ? 'text-4xl lg:text-6xl' : 'text-base lg:text-lg font-light'}`}
                             >
                                 {words.map((word, wordIndex) => {
                                     const start = wordCounter / totalWords;
@@ -58,7 +58,7 @@ const About = ({ pengalamans }) => {
                     viewport={{ once: true }}
                     className="md:px-32 sm:px-8 py-2"
                 >
-                    <h3 className="text-white font-bold text-3xl mb-4 pb-4 pt-4">Experience</h3>
+                    <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experience</h3>
                     <div className="marqueeWrapper overflow-hidden">
                         <div className="marquee">
                             <div className="marquee__content " style={{ '--duration': '80s' }}>

@@ -4,19 +4,24 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ProjekController;
 use App\Models\Pengalaman;
+use App\Models\projek;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-
     $pengalamans = Pengalaman::latest()->get();
+    $projeks = Projek::latest()->get()->map(function ($projek) {
+        $projek->gambar = Storage::url($projek->gambar);
+        return $projek;
+    });
 
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'pengalamans' => $pengalamans,
+        'projeks' => $projeks,
         'phpVersion' => PHP_VERSION,
     ]);
 });
