@@ -16,13 +16,10 @@
   }
 
   .marqueeWrapper {
+    position: relative;
     overflow: hidden;
-    background: black;
-    color: white;
-    position: relative; /* Ensure proper positioning */
 }
 
-/* Add shadow effect to the left and right sides */
 .marqueeWrapper::before,
 .marqueeWrapper::after {
     content: "";
@@ -57,10 +54,17 @@
     min-width: 100%;
     gap: var(--gap);
     will-change: transform;
+    color: white; /* Set text color to white */
     animation: scroll var(--duration) linear infinite;
+    animation-play-state: running; /* Set animation to run by default */
 }
 
-/* Adjust the keyframes according to the duration */
+/* Pause animation on hover */
+.marqueeWrapper:hover .marquee__content {
+    animation-play-state: paused;
+}
+
+/* Keyframes for marquee scroll animation */
 @keyframes scroll {
     0% {
         transform: translateX(0);
