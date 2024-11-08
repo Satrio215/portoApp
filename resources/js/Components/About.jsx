@@ -18,8 +18,8 @@ const About = ({ pengalamans }) => {
     let wordCounter = 0;
 
     return (
-        <section ref={target} className="w-full relative rounded-t-3xl h-[300vh] bg-black justify-center">
-            <div className="h-screen sticky top-0 flex-col items-center justify-center py-8 md:px-36 px-4">
+        <section ref={target} className="w-full relative h-[300vh] bg-black justify-center">
+            <div className="min-h-[100vh] sticky top-0 flex-col items-center justify-center py- md:px-36 px-4">
                 <div className="mx-auto md:px-32">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
