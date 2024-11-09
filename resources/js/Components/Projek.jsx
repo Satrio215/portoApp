@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Projek = ({ projeks }) => {
     const containerVariants = {
@@ -24,21 +24,23 @@ const Projek = ({ projeks }) => {
                 {projeks.map((projek) => (
                     <motion.div
                         key={projek.id}
-                        className="w-80 bg-zinc-900 rounded-lg overflow-hidden shadow-lg"
+                        className="w-80 bg-zinc-900 rounded-lg overflow-hidden shadow-lg relative"
                         variants={itemVariants}
                         whileInView="visible"
                         initial="hidden"
                         viewport={{ once: true }}
                     >
-                        <a href={projek.link} target="_blank" rel="noopener noreferrer" className="block overflow-hidden">
+                        <div className="animated-border-box-glow absolute top-0 left-0 w-full h-full"></div>
+                        <a href={projek.link} target="_blank" rel="noopener noreferrer" className="block overflow-hidden relative z-10">
                             <motion.img
                                 src={projek.gambar}
                                 alt={projek.judul}
-                                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                                className="w-full h-48 object-cover transition-transform duration-300 ease-in-out"
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
+                                whileHover={{ scale: 1.1 }}  // Added hover effect to scale the image
                             />
                         </a>
                         <div className="p-4">
@@ -74,13 +76,23 @@ const Projek = ({ projeks }) => {
                                     href={projek.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-blue-400 hover:underline mt-4 inline-block"
+                                    className="inline-block mt-4"
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.4 }}
                                     viewport={{ once: true }}
                                 >
-                                    View Project
+                                    <motion.div
+                                        className="bg-white p-2 rounded-full justify-end group relative z-20" // Ensure z-index is above other content
+                                        whileHover={{ scale: 1.2 }}  // Scaling effect applied on hover
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        <img
+                                            src="/asset/link3.png"
+                                            alt="View Project"
+                                            className="w-6 h-6 transition-transform duration-200 group-hover:scale-110"
+                                        />
+                                    </motion.div>
                                 </motion.a>
                             )}
                         </div>
