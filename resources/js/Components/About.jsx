@@ -58,7 +58,7 @@ const About = ({ pengalamans }) => {
                     viewport={{ once: true }}
                     className="md:px-32 sm:px-8 py-2"
                 >
-                    <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experience</h3>
+                    <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experiences</h3>
                     <div className="marqueeWrapper overflow-hidden">
                         <div className="marquee">
                             <div className="marquee__content " style={{ '--duration': '80s' }}>
@@ -71,7 +71,7 @@ const About = ({ pengalamans }) => {
                                         viewport={{ once: true }}
                                         className="mb-4 p-4 bg-zinc-900 rounded-xl flex-grow md:w-5/12 lg:w-3/12 mr-4"
                                     >
-                                        <h4 className="font-semibold pb-4">{pengalaman.judul}</h4>
+                                        <h4 className="font-semibold pb-6">{pengalaman.judul}</h4>
                                         <p className="font-extralight text-sm">{pengalaman.mulai} - {pengalaman.selesai}</p>
                                         <p>{pengalaman.keterangan}</p>
                                     </motion.li>

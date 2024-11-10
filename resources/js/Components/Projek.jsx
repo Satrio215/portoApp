@@ -19,8 +19,8 @@ const Projek = ({ projeks }) => {
             animate="visible"
             variants={containerVariants}
         >
-            <h2 className="text-4xl font-bold mb-8 md:px-32 px-4">My Project</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-items-center px-8">
+            <h2 className="text-5xl font-bold mb-8 md:px-32 px-4">My Project's</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 {projeks.map((projek) => (
                     <div className="relative w-80 rounded-lg overflow-hidden shadow-lg p-1">
                         {/* Border Animation */}
@@ -50,7 +50,7 @@ const Projek = ({ projeks }) => {
 
                             <div className="p-4 relative z-10">
                                 <motion.h3
-                                    className="text-2xl font-semibold"
+                                    className="text-lg font-bold"
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5 }}
@@ -60,7 +60,7 @@ const Projek = ({ projeks }) => {
                                 </motion.h3>
 
                                 <motion.p
-                                    className="mt-2 text-gray-400"
+                                    className="text-gray-400"
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -70,7 +70,7 @@ const Projek = ({ projeks }) => {
                                 </motion.p>
 
                                 <motion.p
-                                    className="mt-4 text-sm text-gray-500"
+                                    className="mt-8 text-sm text-gray-500"
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.3 }}
