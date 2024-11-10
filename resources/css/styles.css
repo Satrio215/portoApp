@@ -87,8 +87,8 @@
 }
 
 .animated-border-box-glow {
-  filter: blur(40px); /* Reduced blur for a softer glow */
-  background: conic-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #ffffff);
+  filter: blur(50px); /* Reduced blur for a softer glow */
+  background: conic-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) , #ffffff);
   animation: rotate 14s ease-in-out infinite;
 }
 
@@ -97,6 +97,4 @@
     transform: rotate(360deg);
   }
 }
-
-
 

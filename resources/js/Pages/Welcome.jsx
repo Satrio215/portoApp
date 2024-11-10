@@ -4,7 +4,7 @@ import '../../css/styles.css';
 import Lanyard from '@/Components/Lanyard'; 
 import About from '@/Components/About'; 
 import Projek from '@/Components/Projek'; 
-
+import Footer from '@/Components/Footer';
 
 
 const Welcome = ({ pengalamans, projeks }) => {
@@ -12,6 +12,7 @@ const Welcome = ({ pengalamans, projeks }) => {
     <div>
          <About pengalamans={pengalamans}/>
         <Projek projeks={projeks}/>
+        <Footer />
     </div>
    
   );
