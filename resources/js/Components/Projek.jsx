@@ -14,7 +14,7 @@ const Projek = ({ projeks }) => {
 
     return (
         <motion.section
-            className="py-8 bg-black text-white md:px-36"
+            className="py-8 bg-black text-white md:px-36 pb-32"
             initial="hidden"
             animate="visible"
             variants={containerVariants}

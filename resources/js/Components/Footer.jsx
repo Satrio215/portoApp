@@ -3,9 +3,9 @@ import { FaGithub, FaInstagram, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
     return (
-        <div className="flex flex-col items-center p-5 bg-gray-100">
+        <div className="flex flex-col items-center p-5 bg-white">
             <div className="flex flex-col items-center mb-4">
-                <h3 className="text-lg font-semibold pb-2">Reach Me</h3>
+                <h3 className="text-2xl font-semibold pb-2">Reach Me</h3>
                 <div className="flex gap-6">
                     <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer">
                         <FaGithub className="text-3xl cursor-pointer transition-transform duration-300 transform hover:scale-125" />
