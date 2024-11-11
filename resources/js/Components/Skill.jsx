@@ -24,7 +24,7 @@ const Skill = () => {
 
   return (
     <div className="bg-white py-10 md:px-32 px-4 text-center pt-16" ref={ref}>
-      <h2 className="text-5xl font-bold text-black mb-5">Skills</h2>
+      <h2 className="text-5xl font-bold text-black mb-5">Skill's</h2>
       <p className="text-gray-500 mb-10">These are the technologies and languages I’ve worked with</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {skills.map((skill, index) => (
