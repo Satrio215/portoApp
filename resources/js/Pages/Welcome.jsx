@@ -7,6 +7,7 @@ import About from '@/Components/About';
 import Projek from '@/Components/Projek';
 import Skill from '@/Components/Skill';
 import Footer from '@/Components/Footer';
+import Navbar from '@/Components/Navbar';
 
 const Welcome = ({ pengalamans, projeks }) => {
   const { scrollYProgress } = useScroll();
@@ -18,15 +19,24 @@ const Welcome = ({ pengalamans, projeks }) => {
 
   return (
     <div>
+      <Navbar />
       <motion.div className="progress-bar" style={{ scaleX }} />
-      <About pengalamans={pengalamans}/>
-      <Projek projeks={projeks}/>
-      <Skill />
-      <Footer />
+      <div id="lanyard">
+        <Lanyard />
+      </div>
+      <div id="about">
+        <About pengalamans={pengalamans}/>
+      </div>
+      <div id="projects">
+        <Projek projeks={projeks}/>
+      </div>
+      <div id="skills">
+        <Skill />
+      </div>
+      <div id="contact">
+        <Footer />
+      </div>
     </div>
   );
 };
-
-createRoot(document.getElementById('root')).render(<Lanyard />);
-
 export default Welcome;

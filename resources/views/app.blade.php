@@ -11,7 +11,6 @@
     @inertiaHead
 </head>
 <body class="font-sans antialiased">
-    <div id="root"></div> <!-- Pastikan elemen ini ada -->
     @inertia
 </body>
 </html>
