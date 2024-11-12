@@ -58,7 +58,7 @@ const About = ({ pengalamans }) => {
                     viewport={{ once: true }}
                     className="md:px-32 sm:px-8 py-2"
                 >
-                    <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experiences</h3>
+                    <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experience's</h3>
                     <div className="marqueeWrapper overflow-hidden">
                         <div className="marquee">
                             <div className="marquee__content " style={{ '--duration': '80s' }}>
