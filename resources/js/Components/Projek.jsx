@@ -14,13 +14,13 @@ const Projek = ({ projeks }) => {
 
     return (
         <motion.section
-            className="py-8 bg-black text-white md:px-36 pb-32"
+            className="py-8 bg-black text-white lg:px-36 pb-32"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
         >
-            <h2 className="text-5xl font-bold mb-8 md:px-32 px-4">My Project's</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+            <h2 className="text-5xl font-bold mb-8 2xl:px-32 px-6">My Project's</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
                 {projeks.map((projek) => (
                     <div className="relative w-80 rounded-lg overflow-hidden shadow-lg p-1">
                         {/* Border Animation */}
