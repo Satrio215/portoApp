@@ -19,8 +19,8 @@ const About = ({ pengalamans }) => {
 
     return (
         <section ref={target} className="w-full relative h-[300vh] bg-black justify-center">
-            <div className="min-h-[100vh] sticky top-0 flex-col items-center justify-center pt-16 md:px-36 px-4">
-                <div className="mx-auto md:px-32 px-4">
+            <div className="min-h-[100vh] sticky top-0 flex-col items-center justify-center pt-16 lg:px-36 px-4">
+                <div className="mx-auto 2xl:px-32 px-4">
                     {content.map((item, lineIndex) => {
                         const words = item.split(" ");
                         return (
@@ -56,7 +56,7 @@ const About = ({ pengalamans }) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="md:px-32 sm:px-8 py-2"
+                    className="2xl:px-32 lg:px-2 py-2 px-4"
                 >
                     <h3 className="text-white font-semibold text-3xl mb-4 pb-4">Experience's</h3>
                     <div className="marqueeWrapper overflow-hidden">
@@ -102,9 +102,9 @@ const About = ({ pengalamans }) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1 }}
                     viewport={{ once: true }}
-                    className="flex flex-wrap justify-center py-2 px-4 md:px-8"
+                    className="flex flex-col justify-center xl:flex-row "
                 >
-                    <div className="w-full md:w-auto px-6 py-6 bg-zinc-900 rounded-xl text-center md:mr-4 mb-4 md:mb-0">
+                    <div className="w-full xl:w-auto px-6 py-6 bg-zinc-900 rounded-xl text-center md:mr-4 mb-4 xl:mb-0">
                         <a href="https://github.com/Satrio215" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/asset/profile.png"
