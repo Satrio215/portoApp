@@ -12,7 +12,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
     $pengalamans = Pengalaman::latest()->get();
     $projeks = Projek::latest()->get()->map(function ($projek) {
-        $projek->gambar = Storage::url($projek->gambar);
+        $projek->gambar = asset('images/' . $projek->gambar);
         return $projek;
     });
 

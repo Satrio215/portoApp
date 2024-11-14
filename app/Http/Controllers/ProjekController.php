@@ -14,7 +14,7 @@ class ProjekController extends Controller
     public function index()
     {
         $projeks = Projek::latest()->get()->map(function ($projek) {
-            $projek->gambar = Storage::url($projek->gambar);
+            $projek->gambar = asset('images/' . $projek->gambar); // Gunakan asset() untuk URL gambar di public/images
             return $projek;
         });
 
@@ -35,37 +35,30 @@ class ProjekController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'judul' => 'required|string|max:255',
-        'keterangan' => 'required|string',
-        'tech' => 'required|string|max:255',
-        'link' => 'required|url|max:255',
-        'user_id' => 'required|exists:users,id',
-    ]);
-
-    $path = $request->file('gambar')->store('images', 'public');
-
-    Projek::create([
-        'gambar' => $path,
-        'judul' => $request->judul,
-        'keterangan' => $request->keterangan,
-        'tech' => $request->tech,
-        'link' => $request->link,
-        'user_id' => $request->user_id,
-    ]);
-
-    return redirect()->route('projeks.index')->with('success', 'Projek berhasil dibuat.');
-}
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Projek $projek)
     {
-        //
+        $request->validate([
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required|string|max:255',
+            'keterangan' => 'required|string',
+            'tech' => 'required|string|max:255',
+            'link' => 'required|url|max:255',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        // Simpan gambar di direktori public/images
+        $filename = time() . '.' . $request->file('gambar')->getClientOriginalExtension();
+        $request->file('gambar')->move(public_path('images'), $filename);
+
+        Projek::create([
+            'gambar' => $filename,
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'tech' => $request->tech,
+            'link' => $request->link,
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->route('projeks.index')->with('success', 'Projek berhasil dibuat.');
     }
 
     /**
@@ -75,45 +68,46 @@ class ProjekController extends Controller
     {
         $projek = Projek::findOrFail($id);
         return inertia('Projek/Update', [
-        'projek' => $projek,
-    ]);
+            'projek' => $projek,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $projek = Projek::findOrFail($id);
+    {
+        $projek = Projek::findOrFail($id);
 
-    $request->validate([
-        'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'judul' => 'required|string|max:255',
-        'keterangan' => 'required|string',
-        'tech' => 'required|string|max:255',
-        'link' => 'required|url|max:255',
-        'user_id' => 'required|exists:users,id',
-    ]);
+        $request->validate([
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'judul' => 'required|string|max:255',
+            'keterangan' => 'required|string',
+            'tech' => 'required|string|max:255',
+            'link' => 'required|url|max:255',
+            'user_id' => 'required|exists:users,id',
+        ]);
 
-    if ($request->hasFile('gambar')) {
-        if ($projek->gambar && Storage::exists('public/' . $projek->gambar)) {
-            Storage::delete('public/' . $projek->gambar);
+        if ($request->hasFile('gambar')) {
+            $oldImage = public_path('images/' . $projek->gambar);
+            if (file_exists($oldImage)) {
+                unlink($oldImage); // Hapus gambar lama
+            }
+            $filename = time() . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $request->file('gambar')->move(public_path('images'), $filename);
+            $projek->gambar = $filename;
         }
-        $path = $request->file('gambar')->store('images', 'public');
-        $projek->gambar = $path;
+
+        $projek->judul = $request->judul;
+        $projek->keterangan = $request->keterangan;
+        $projek->tech = $request->tech;
+        $projek->link = $request->link;
+        $projek->user_id = $request->user_id;
+
+        $projek->save();
+
+        return redirect()->route('projeks.index')->with('success', 'Projek berhasil diperbarui.');
     }
-
-    $projek->judul = $request->judul;
-    $projek->keterangan = $request->keterangan;
-    $projek->tech = $request->tech;
-    $projek->link = $request->link;
-    $projek->user_id = $request->user_id;
-
-    $projek->save();
-
-    return redirect()->route('projeks.index')->with('success', 'Projek berhasil diperbarui.');
-}
-
 
     /**
      * Remove the specified resource from storage.
@@ -122,8 +116,9 @@ class ProjekController extends Controller
     {
         $projek = Projek::findOrFail($id);
 
-        if ($projek->gambar && Storage::exists('public/' . $projek->gambar)) {
-            Storage::delete('public/' . $projek->gambar);
+        $imagePath = public_path('images/' . $projek->gambar);
+        if (file_exists($imagePath)) {
+            unlink($imagePath); // Hapus gambar dari direktori public/images
         }
 
         $projek->delete();
