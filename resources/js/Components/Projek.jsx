@@ -20,15 +20,17 @@ const Projek = ({ projeks }) => {
             variants={containerVariants}
         >
             <h2 className="text-5xl font-bold mb-8 2xl:px-32 px-6">My Project's</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 justify-items-center">
                 {projeks.map((projek) => (
-                    <div className="relative w-80 rounded-lg overflow-hidden shadow-lg p-1">
+                    <div
+                        key={projek.id}
+                        className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg rounded-lg overflow-hidden shadow-lg p-1"
+                    >
                         {/* Border Animation */}
                         <div className="animated-border-box" />
                         <div className="animated-border-box-glow" />
 
                         <motion.div
-                            key={projek.id}
                             className="relative w-full h-full bg-zinc-900 rounded-lg overflow-hidden"
                             variants={itemVariants}
                             whileInView="visible"
