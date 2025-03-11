@@ -45,20 +45,20 @@ export default function Create({ auth }) {
                             <form onSubmit={handleSubmit} encType="multipart/form-data">
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Gambar</label>
-                                    <input 
-                                        type="file" 
-                                        onChange={handleFileChange} 
-                                        className="mt-1 block w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg cursor-pointer" 
+                                    <input
+                                        type="file"
+                                        onChange={handleFileChange}
+                                        className="mt-1 block w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg cursor-pointer"
                                     />
                                     {errors.gambar && <span className="text-red-600 text-sm">{errors.gambar}</span>}
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Judul</label>
-                                    <input 
-                                        type="text" 
-                                        value={data.judul} 
-                                        onChange={(e) => setData('judul', e.target.value)} 
+                                    <input
+                                        type="text"
+                                        value={data.judul}
+                                        onChange={(e) => setData('judul', e.target.value)}
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                                     />
                                     {errors.judul && <span className="text-red-600 text-sm">{errors.judul}</span>}
@@ -76,10 +76,10 @@ export default function Create({ auth }) {
 
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Teknologi</label>
-                                    <input 
-                                        type="text" 
-                                        value={data.tech} 
-                                        onChange={(e) => setData('tech', e.target.value)} 
+                                    <input
+                                        type="text"
+                                        value={data.tech}
+                                        onChange={(e) => setData('tech', e.target.value)}
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                                     />
                                     {errors.tech && <span className="text-red-600 text-sm">{errors.tech}</span>}
@@ -87,10 +87,10 @@ export default function Create({ auth }) {
 
                                 <div className="mb-4">
                                     <label className="block text-sm font-medium text-gray-700">Link Projek</label>
-                                    <input 
-                                        type="url" 
-                                        value={data.link} 
-                                        onChange={(e) => setData('link', e.target.value)} 
+                                    <input
+                                        type="url"
+                                        value={data.link}
+                                        onChange={(e) => setData('link', e.target.value)}
                                         className="mt-1 block w-full p-2 border border-gray-300 rounded-lg"
                                     />
                                     {errors.link && <span className="text-red-600 text-sm">{errors.link}</span>}
